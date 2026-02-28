@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lex Frost | Managed Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        
+        .gallery-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
+        }
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="text-slate-900">
+
+    <nav class="fixed w-full z-50 nav-glass">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-700 p-2 rounded-lg text-white font-bold">LF</div>
+                <span class="text-xl font-extrabold tracking-tighter uppercase">Lex Frost</span>
+            </div>
+            <a href="inndex.html" class="bg-slate-900 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-blue-700 transition">
+                <i class="fas fa-home mr-2"></i> Home
+            </a>
+        </div>
+    </nav>
+
+    <header class="pt-40 pb-20 container mx-auto px-6 text-center">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-4 text-slate-900">Photo <span class="text-blue-700">Archive</span></h1>
+        <p class="text-slate-500 max-w-xl mx-auto">I have neatly filed the memories sent by friends here.</p>
+    </header>
+
+    <main class="container mx-auto px-6 mb-24">
+        <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            </div>
+    </main>
+
+    <section class="bg-blue-700 py-20">
+        <div class="container mx-auto px-6 text-center text-white">
+            <h2 class="text-3xl font-bold mb-6">Got Photos?</h2>
+            <p class="mb-10 opacity-80 max-w-lg mx-auto">If you have pictures from our events, please send them to me using the button below.</p>
+            <a href="https://forms.gle/MZdJxmW4gWfDFPK16" target="_blank" class="bg-white text-blue-700 px-10 py-4 rounded-2xl font-bold uppercase tracking-widest shadow-xl hover:bg-slate-100 transition inline-block">
+                <i class="fas fa-cloud-upload-alt mr-2"></i> Go to Upload Form
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const myDrivePhotos = [
+            "https://drive.google.com/file/d/1zjAGjkJh5o5YqpRDIOqCLDiyefgDWOS1/view?usp=drive_link/view",
+            "https://drive.google.com/file/d/1EnEi4_l2VDdKv_vZW9Tv87fjHO3IEI5E/view?usp=sharing/view",
+            "https://drive.google.com/file/d/1EiIoCLzgOEEJ19Hy8BrocWplnvMgmhsk/view?usp=sharing/view",
+            "https://drive.google.com/file/d/1sVR5DRc83UVw0-46bWXXmI0wcyTGS8S-/view?usp=sharing/view",
+            "https://drive.google.com/file/d/1pY9Uix19EtAyn_D9b-IKY4TCid8jcRNZ/view?usp=sharing/view",
+            "https://drive.google.com/file/d/1Onoh2z3BHKmLbvAtxkJyAqn6T21rPGXG/view?usp=sharing/view",
+            "https://drive.google.com/file/d/1BERZNQrf6oRyRGjkK_J_zd3vtClxgn1c/view?usp=sharing/view",
+            "https://drive.google.com/file/d/1Ie7xps9YHH2vgs3XpI-EJXgpXFOOGfE4/view?usp=sharing/view",
+        ];
+
+        function getDriveImageUrl(driveUrl) {
+            const idMatch = driveUrl.match(/\/d\/(.+?)\//);
+            if (idMatch && idMatch[1]) {
+                return `https://lh3.googleusercontent.com/u/0/d/${idMatch[1]}`;
+            }
+            return driveUrl;
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('gallery-grid');
+            
+            myDrivePhotos.forEach((link, index) => {
+                const imgUrl = getDriveImageUrl(link);
+                const card = `
+                    <div class="gallery-card group">
+                        <div class="h-64 overflow-hidden">
+                            <img src="${imgUrl}" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" 
+                                 onerror="this.src='https://via.placeholder.com/400x300?text=Check+Drive+Sharing+Settings'">
+                        </div>
+                        <div class="p-5 border-t border-slate-50">
+                            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest">Memory -${index + 1}</p>
+                            <p class="text-[10px] text-slate-400 mt-1">Verified Upload</p>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += card;
+            });
+        }
+
+        window.onload = renderGallery;
+    </script>
+
+    <footer class="py-12 text-center text-slate-400 text-sm">
+        <p>© 2026 Lex Frost | Matara, Sri Lanka</p>
+    </footer>
+
+</body>
+</html>

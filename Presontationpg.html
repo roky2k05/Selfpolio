@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lex Frost | Presentation Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #1e293b; }
+        
+        .doc-card {
+            background: white;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .doc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(30, 64, 175, 0.1);
+            border-color: #3b82f6;
+        }
+        .ms-word-blue { color: #2b579a; }
+    </style>
+</head>
+<body class="pb-20">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="container mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-file-word text-blue-600 text-2xl"></i>
+                <span class="font-extrabold text-xl tracking-tighter uppercase">Lex Frost <span class="text-blue-600">Archive</span></span>
+            </div>
+            <a href="inndex.html" class="text-sm font-bold text-slate-600 hover:text-blue-600">Back to Path</a>
+        </div>
+    </nav>
+
+    <header class="py-16 text-center">
+        <h1 class="text-4xl font-extrabold mb-4">Academic <span class="text-blue-600">Downloads</span></h1>
+        <p class="text-slate-500 max-w-lg mx-auto px-6">Preview my Presentations here and download them if needed.</p>
+    </header>
+
+    <main class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="doc-card p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <i class="fas fa-file-word text-4xl ms-word-blue"></i>
+                        <span class="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-1 rounded">PPTX</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Business Information System</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">ICBT Southern Campus - BIS module primary submission.</p>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="openPreview('https:/docs.google.com/presentation/d/1L0UTyy2i_jYwX8lEJyPjCYosFFCc-W-1/edit?usp=sharing&ouid=115411511391098999698&rtpof=true&sd=true')" class="flex-1 bg-slate-100 text-slate-700 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 transition">
+                        Preview
+                    </button>
+                    <a href="https://docs.google.com/presentation/d/1L0UTyy2i_jYwX8lEJyPjCYosFFCc-W-1/edit?usp=sharing&ouid=115411511391098999698&rtpof=true&sd=true" download class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-bold text-sm text-center hover:bg-blue-700 transition">
+                        Download
+                    </a>
+                </div>
+            </div>
+
+            <div class="doc-card p-6 flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-4">
+                        <i class="fas fa-file-word text-4xl ms-word-blue"></i>
+                        <span class="text-[10px] bg-blue-100 text-blue-700 font-bold px-2 py-1 rounded">PPTX</span>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Professinal Practice</h3>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">ICBT Southern Campus - Professional Practice module primary submission.</p>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="openPreview('pending')" class="flex-1 bg-slate-100 text-slate-700 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 transition">
+                        Preview
+                    </button>
+                    <a href="Pending" download class="flex-1 bg-blue-600 text-white py-3 rounded-xl font-bold text-sm text-center hover:bg-blue-700 transition">
+                        Download
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-20 max-w-2xl mx-auto bg-blue-50 border border-blue-100 p-8 rounded-[2rem] text-center">
+            <h2 class="text-xl font-bold text-blue-900 mb-4">Submit Your Assignment</h2>
+            <p class="text-blue-700/60 text-sm mb-6">If you also want to share an assignment, use the form below.</p>
+            <a href="https://forms.gle/H1VkizfaqdQ44gLp8" target="_blank" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-blue-700 transition">
+                Go to Form
+            </a>
+        </div>
+    </main>
+
+    <div id="previewModal" class="fixed inset-0 bg-black/80 z-[100] hidden flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-5xl h-[90vh] rounded-3xl overflow-hidden relative">
+            <button onclick="closePreview()" class="absolute top-4 right-4 bg-red-500 text-white w-10 h-10 rounded-full z-[110]">
+                <i class="fas fa-times"></i>
+            </button>
+            <iframe id="previewFrame" src="" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openPreview(url) {
+            const viewerUrl = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(url)}`;
+            document.getElementById('previewFrame').src = viewerUrl;
+            document.getElementById('previewModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closePreview() {
+            document.getElementById('previewModal').classList.add('hidden');
+            document.getElementById('previewFrame').src = '';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
+</body>
+</html>
