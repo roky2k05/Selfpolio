@@ -42,6 +42,18 @@
                 <a href="#contact" class="px-5 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition shadow-md">Contact</a>
             </div>
 
+            <div id="mobile-menu" class="hidden lg:hidden flex-col bg-white border-t border-slate-200 px-6 py-4 space-y-4 font-semibold text-slate-600">
+                <a href="#home" class="hover:text-blue-700 transition">Home</a>
+                <a href="about.html" class="hover:text-blue-700 transition">About</a>
+                <a href="spp1.html" class="hover:text-blue-700 transition">Photo Archive</a>
+                <a href="#portfolio" class="hover:text-blue-700 transition">Works</a>
+                <a href="#contact" class="text-blue-700">Contact</a>
+            </div>
+
+            <button id="menu-btn" class="lg:hidden text-slate-600 focus:outline-none mr-4">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
             <div class="flex items-center">
                 <a href="https://www.google.com/maps/dir/Akuressa/Matara" target="_blank" class="group relative">
                     <i class="fas fa-location-dot text-2xl text-blue-700 group-hover:text-red-500 transition-colors"></i>
@@ -151,6 +163,16 @@
             </div>
         </div>
     </section>
+
+    <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+    </script>
 
     <footer class="py-10 text-center text-slate-500 border-t border-slate-100">
         <p>© 2026 Lex Frost Professional Portfolio. Matara, Sri Lanka.</p>
