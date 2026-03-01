@@ -21,6 +21,13 @@
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+
+        #mobile-menu-container.active #menu-overlay {
+            display: block;
+        }
+        #mobile-menu-container.active #side-menu {
+           transform: translateX(0);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
@@ -42,15 +49,9 @@
                 <a href="#contact" class="px-5 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition shadow-md">Contact</a>
             </div>
 
-            <div id="mobile-menu" class="hidden lg:hidden flex-col bg-white border-t border-slate-200 px-6 py-4 space-y-4 font-semibold text-slate-600">
-                <a href="#home" class="hover:text-blue-700 transition">Home</a>
-                <a href="about.html" class="hover:text-blue-700 transition">About</a>
-                <a href="spp1.html" class="hover:text-blue-700 transition">Photo Archive</a>
-                <a href="#portfolio" class="hover:text-blue-700 transition">Works</a>
-                <a href="#contact" class="text-blue-700">Contact</a>
-            </div>
+            
 
-            <button id="menu-btn" class="lg:hidden text-slate-600 focus:outline-none mr-4">
+            <button id="open-menu" class="lg:hidden text-slate-600 focus:outline-none mr-4">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
 
@@ -62,6 +63,27 @@
             </div>
         </div>
     </nav>
+
+    <div id="mobile-menu-container" class="relative z-[100]">
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity"></div>
+
+    <div id="side-menu" class="fixed top-0 right-0 w-64 h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+            <div class="flex justify-end mb-8">
+                <button id="close-menu" class="text-slate-500 hover:text-red-500">
+                    <i class="fas fa-xmark text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col space-y-6 font-semibold text-slate-700 text-lg">
+                <a href="#home" class="hover:text-blue-700 border-b border-slate-100 pb-2">Home</a>
+                <a href="about.html" class="hover:text-blue-700 border-b border-slate-100 pb-2">About</a>
+                <a href="spp1.html" class="hover:text-blue-700 border-b border-slate-100 pb-2">Photo Archive</a>
+                <a href="#portfolio" class="hover:text-blue-700 border-b border-slate-100 pb-2">Works</a>
+                <a href="#contact" class="bg-blue-700 text-white text-center py-3 rounded-xl shadow-lg">Contact</a>
+            </div>
+        </div>
+    </div>
 
     <section id="home" class="hero-gradient min-h-[85vh] flex items-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-20">
@@ -165,13 +187,20 @@
     </section>
 
     <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
+    const container = document.getElementById('mobile-menu-container');
+    const openBtn = document.getElementById('open-menu');
+    const closeBtn = document.getElementById('close-menu');
+    const overlay = document.getElementById('menu-overlay');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
+    openBtn.addEventListener('click', () => {
+        container.classList.add('active');
+    });
+
+    [closeBtn, overlay].forEach(element => {
+        element.addEventListener('click', () => {
+            container.classList.remove('active');
         });
+    });
     </script>
 
     <footer class="py-10 text-center text-slate-500 border-t border-slate-100">
