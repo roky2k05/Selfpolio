@@ -50,7 +50,7 @@
             </div>
 
             <div class="lg:hidden flex items-center">
-                <button id="menu-btn" class="text-slate-600 focus:outline-none p-2">
+                <button id="menu-btn" class="text-blue-700 focus:outline-none p-2">
                     <i id="menu-icon" class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -178,30 +178,29 @@
     </section>
 
     <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const icon = document.getElementById('menu-icon');
-        const links = document.querySelectorAll('.mobile-link');
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const icon = document.getElementById('menu-icon');
+    const links = document.querySelectorAll('.mobile-link');
 
-        // Toggle mobile menu
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            // Change icon from Bars to X
-            if (menu.classList.contains('hidden')) {
-                icon.classList.replace('fa-xmark', 'fa-bars');
-            } else {
-                icon.classList.replace('fa-bars', 'fa-xmark');
-            }
-        });
+    btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        if (menu.classList.contains('hidden')) {
+            icon.classList.replace('fa-xmark', 'fa-bars');
+            // මෙහිදී icon එකේ color එක වෙනස් කිරීමට අවශ්‍ය නැත, 
+            // මන්ද button එකට දැනටමත් text-blue-700 ලබා දී ඇති බැවිනි.
+        } else {
+            icon.classList.replace('fa-bars', 'fa-xmark');
+        }
+    });
 
-        // Close menu when a link is clicked
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                icon.classList.replace('fa-xmark', 'fa-bars');
-            });
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            icon.classList.replace('fa-xmark', 'fa-bars');
         });
-    </script>
+    });
+</script>
 
     <footer class="py-10 text-center text-slate-500 border-t border-slate-100">
          <div>
