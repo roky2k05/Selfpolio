@@ -49,9 +49,10 @@
                 <a href="#contact" class="px-5 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition shadow-md">Contact</a>
             </div>
 
+            <!-- මෙතන තමයි Mobile Menu Button එක තියෙන්නේ. එකේ icon එකට text-blue-700 class එක එකතු කළා -->
             <div class="lg:hidden flex items-center">
-                <button id="menu-btn" class="text-blue-700 focus:outline-none p-2">
-                    <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                <button id="menu-btn" class="focus:outline-none p-2">
+                    <i id="menu-icon" class="fas fa-bars text-3xl text-blue-700"></i>
                 </button>
             </div>
         </div>
@@ -187,8 +188,6 @@
         menu.classList.toggle('hidden');
         if (menu.classList.contains('hidden')) {
             icon.classList.replace('fa-xmark', 'fa-bars');
-            // මෙහිදී icon එකේ color එක වෙනස් කිරීමට අවශ්‍ය නැත, 
-            // මන්ද button එකට දැනටමත් text-blue-700 ලබා දී ඇති බැවිනි.
         } else {
             icon.classList.replace('fa-bars', 'fa-xmark');
         }
@@ -200,7 +199,7 @@
             icon.classList.replace('fa-xmark', 'fa-bars');
         });
     });
-</script>
+    </script>
 
     <footer class="py-10 text-center text-slate-500 border-t border-slate-100">
          <div>
