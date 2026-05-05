@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Design Portfolio | LEX FROST</title>
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        electricBlue: '#00d2ff',
+                        darkSlate: '#0f172a',
+                        softGray: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .pro-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pro-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 210, 255, 0.4);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.05), 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+
+        .image-container {
+            overflow: hidden;
+        }
+        .image-container img {
+            transition: transform 0.6s ease;
+        }
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        .image-overlay {
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .video-glow {
+            position: relative;
+        }
+        .video-glow::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 0.75rem;
+            background: linear-gradient(45deg, #00d2ff, transparent, #00d2ff);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .video-glow:hover::after {
+            opacity: 0.5;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d2ff;
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col selection:bg-electricBlue selection:text-white">
+
+    <header class="sticky top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 bg-darkSlate text-white rounded-lg flex items-center justify-center font-heading font-bold text-xl group-hover:bg-electricBlue transition-colors duration-300 shadow-md">
+                        L<span class="text-electricBlue group-hover:text-white transition-colors duration-300">F</span>
+                    </div>
+                    <span class="font-heading font-extrabold text-2xl tracking-tight text-darkSlate">
+                        LEX <span class="text-electricBlue">FROST</span>
+                    </span>
+                </a>
+
+                <a href="skill.html" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-slate-600 bg-softGray border border-gray-200 rounded-full hover:text-electricBlue hover:border-electricBlue hover:bg-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,210,255,0.2)]">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Skills
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto space-y-24">
+            
+            <div class="text-center">
+                <span class="text-electricBlue font-semibold tracking-[0.2em] uppercase text-xs mb-4 block">Discipline Showcase</span>
+                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-darkSlate mb-6 tracking-tight">
+                    Graphic <span class="text-electricBlue">Design</span>
+                </h1>
+                <p class="text-slate-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                    A curated collection of visual identities, high-fidelity mockups, and creative media demonstrating a fusion of art and technical precision.
+                </p>
+            </div>
+
+            <section>
+                <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+                        <i class="fa-solid fa-image text-electricBlue text-xl"></i>
+                    </div>
+                    <h2 class="font-heading text-2xl font-bold text-darkSlate">Recent Designs</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="pro-card rounded-2xl overflow-hidden group">
+                        <div class="image-container relative aspect-[4/3] w-full bg-gray-100">
+                            <img src="Post oḟ computers.png" alt="Brand Identity" class="w-full h-full object-cover">
+                            <div class="image-overlay absolute inset-0 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-white font-heading font-semibold text-lg">Computer Brand Identity</h3>
+                                    <p class="text-electricBlue text-sm">Illustrator / Photoshop</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-card rounded-2xl overflow-hidden group">
+                        <div class="image-container relative aspect-[4/3] w-full bg-gray-100">
+                            <img src="DSI (1).png" alt="Apparel Design" class="w-full h-full object-cover">
+                            <div class="image-overlay absolute inset-0 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-white font-heading font-semibold text-lg">Shoes Apparel Design</h3>
+                                    <p class="text-electricBlue text-sm">Vector Art</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pro-card rounded-2xl overflow-hidden group">
+                        <div class="image-container relative aspect-[4/3] w-full bg-gray-100">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80" alt="UI Mockup" class="w-full h-full object-cover">
+                            <div class="image-overlay absolute inset-0 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-white font-heading font-semibold text-lg">UI/UX Interface Mockup</h3>
+                                    <p class="text-electricBlue text-sm">Figma</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+                        <i class="fa-solid fa-play text-electricBlue text-xl"></i>
+                    </div>
+                    <h2 class="font-heading text-2xl font-bold text-darkSlate">Project Demos & Animation</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="pro-card p-4 rounded-2xl">
+                        <div class="video-glow rounded-xl bg-darkSlate">
+                            <iframe class="w-full aspect-video rounded-xl" src="graphic.mp4" title="Project Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-5 px-2">
+                            <h3 class="font-heading font-semibold text-lg text-darkSlate">Poster Graphics Reel</h3>
+                            <p class="text-slate-500 text-sm mt-1">Social Media Post Design #illustrator #motiongraphics #design.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="pro-card p-4 rounded-2xl">
+                        <div class="video-glow rounded-xl bg-darkSlate">
+                            <iframe class="w-full aspect-video rounded-xl" src="ui design.mp4" title="Project Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="mt-5 px-2">
+                            <h3 class="font-heading font-semibold text-lg text-darkSlate">UI Interaction Demo</h3>
+                            <p class="text-slate-500 text-sm mt-1">Recording of high-fidelity interactive prototypes showcasing user flows.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center gap-4 mb-8 border-b border-gray-100 pb-4">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center">
+                        <i class="fa-solid fa-file-pdf text-electricBlue text-xl"></i>
+                    </div>
+                    <h2 class="font-heading text-2xl font-bold text-darkSlate">Technical Documents & Guidelines</h2>
+                </div>
+
+                <div class="pro-card rounded-2xl p-4 lg:p-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 px-2 gap-4">
+                        <div>
+                            <h3 class="font-heading font-semibold text-xl text-darkSlate">Brand Identity Case Study</h3>
+                            <p class="text-slate-500 text-sm mt-1">A comprehensive breakdown of typography, color theory, and logo usage guidelines.</p>
+                        </div>
+                        <a href="path-to-your-document.pdf" download class="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-darkSlate hover:bg-electricBlue rounded-lg transition-colors duration-300 shadow-md">
+                            <i class="fa-solid fa-download"></i> Download PDF
+                        </a>
+                    </div>
+                    
+                    <div class="w-full h-[600px] lg:h-[800px] rounded-xl border border-gray-200 overflow-hidden bg-gray-50 flex items-center justify-center relative">
+                    
+                        <iframe src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="w-full h-full absolute inset-0" title="PDF Document Viewer">
+                            <p class="text-slate-500 p-8 text-center">It appears your browser doesn't support built-in PDFs. <a href="path-to-your-document.pdf" class="text-electricBlue underline">Click here to download the PDF</a>.</p>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-100 bg-white py-8 text-center mt-auto">
+        <p class="text-sm text-slate-400 font-medium tracking-wide">
+            &copy; <script>document.write(new Date().getFullYear())</script> LEX FROST. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>

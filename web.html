@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Portfolio | LEX FROST</title>
+  
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        electricBlue: '#00d2ff',
+                        darkSlate: '#0f172a',
+                        softGray: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .pro-card {
+            background: #ffffff;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pro-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 210, 255, 0.4);
+            box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.05), 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+
+        .image-container {
+            overflow: hidden;
+        }
+        .image-container img {
+            transition: transform 0.6s ease;
+        }
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        .image-overlay {
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .video-glow {
+            position: relative;
+        }
+        .video-glow::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 0.75rem;
+            background: linear-gradient(45deg, #00d2ff, transparent, #00d2ff);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .video-glow:hover::after {
+            opacity: 0.5;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00d2ff;
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col selection:bg-electricBlue selection:text-white">
+
+    <header class="sticky top-0 w-full bg-white/80 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 bg-darkSlate text-white rounded-lg flex items-center justify-center font-heading font-bold text-xl group-hover:bg-electricBlue transition-colors duration-300 shadow-md">
+                        L<span class="text-electricBlue group-hover:text-white transition-colors duration-300">F</span>
+                    </div>
+                    <span class="font-heading font-extrabold text-2xl tracking-tight text-darkSlate">
+                        LEX <span class="text-electricBlue">FROST</span>
+                    </span>
+                </a>
+
+                <a href="skill.html" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-slate-600 bg-softGray border border-gray-200 rounded-full hover:text-electricBlue hover:border-electricBlue hover:bg-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,210,255,0.2)]">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Skills
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16 pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto space-y-24">
+            
+            <div class="text-center">
+                <span class="text-electricBlue font-semibold tracking-[0.2em] uppercase text-xs mb-4 block">Discipline Showcase</span>
+                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-darkSlate mb-6 tracking-tight">
+                    Web <span class="text-electricBlue">Design</span>
+                </h1>
+                <p class="text-slate-500 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+                    A collection of my work and projects in the field of Web Design, showcasing my skills and experience in this domain.
+                </p>
+            </div>
+
+          
+
+        </div>
+    </main>
+
+    <footer class="border-t border-gray-100 bg-white py-8 text-center mt-auto">
+        <p class="text-sm text-slate-400 font-medium tracking-wide">
+            &copy; <script>document.write(new Date().getFullYear())</script> LEX FROST. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
